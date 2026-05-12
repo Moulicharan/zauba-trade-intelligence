@@ -1,6 +1,31 @@
+# Virtual environment
 venv/
+
+# Environment variables
 .env
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Database files
 *.db
+
+# macOS
 .DS_Store
+
+# Data files
+data/*.csv
+data/*.json
+
+# Docker/Postgres volumes
+postgres_data/
+
+# Streamlit cache
+.streamlit/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
