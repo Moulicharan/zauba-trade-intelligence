@@ -1,0 +1,77 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:16
+
+    container_name: zauba_postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: zauba_db
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  fastapi:
+    build: .
+
+    container_name: zauba_fastapi
+
+    restart: always
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+
+    command: >
+      uvicorn api.main:app
+      --host 0.0.0.0
+      --port 8000
+
+
+  streamlit:
+    build: .
+
+    container_name: zauba_dashboard
+
+    restart: always
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    ports:
+      - "8501:8501"
+
+    env_file:
+      - .env
+
+    command: >
+      streamlit run dashboard/app.py
+      --server.port 8501
+      --server.address 0.0.0.0
+
+
+volumes:
+  postgres_data:
