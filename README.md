@@ -1,142 +1,168 @@
 # 🌍 B2B Trade Intelligence Pipeline
 
-## 📌 Problem Statement
+An end-to-end Data Engineering project that builds a real-world B2B trade intelligence platform using global import/export trade data from the UN Comtrade API.
 
-Businesses involved in global import/export operations often struggle to access structured and actionable trade intelligence data. Raw international trade datasets are massive, inconsistent, and difficult to analyze directly.
+The system automatically collects, cleans, stores, serves, and visualizes international trade data so businesses can analyze trade flows, identify major trading partners, monitor product-level trends, and make data-driven decisions.
 
-This project solves that problem by building an end-to-end B2B Trade Intelligence Pipeline that:
+This project was built as part of a Data Engineering assignment focused on designing a dynamic, production-style B2B data pipeline.
 
-* Fetches international trade data from the UN Comtrade public API
-* Cleans and standardizes raw trade records
-* Stores structured data in PostgreSQL
-* Exposes analytics APIs using FastAPI
-* Visualizes trade insights through Streamlit dashboards
-* Automates the ETL workflow using APScheduler
+---
+
+# 📌 Assignment Objective
+
+The assignment required building a complete end-to-end B2B data pipeline that:
+
+* Solves a real business problem using data
+* Automates data collection and cleaning
+* Stores data in a reliable database
+* Exposes a usable endpoint or interface
+* Deploys the solution in a reproducible way
+* Demonstrates engineering thinking, reliability, and scalability
+
+This project addresses all three required phases:
+
+* Scraping
+* Cleaning & Automation
+* Deployment
+
+---
+
+# 🧩 B2B Problem Being Solved
+
+Businesses involved in international trade often struggle to access structured and actionable trade intelligence data.
+
+Raw trade datasets are:
+
+* Massive
+* Inconsistent
+* Difficult to query
+* Not business-user friendly
+* Hard to automate and visualize
+
+Companies frequently need answers to questions like:
+
+* Which countries are importing/exporting specific products?
+* Which trading partners are growing over time?
+* What products have the highest trade value?
+* Which markets are emerging opportunities?
+* How do trade flows change yearly?
+
+Manually analyzing raw datasets or API responses is inefficient and time-consuming.
+
+This project solves that problem by building a centralized trade intelligence pipeline that continuously collects and processes trade data into business-friendly APIs and dashboards.
+
+---
+
+# 💼 Business Value
 
 The platform enables businesses to:
 
-### 📈 Analyze Import/Export Trends
+## 📈 Analyze Import/Export Trends
 
-The system continuously collects structured international trade data and stores it in a centralized PostgreSQL database. Businesses can analyze historical trade patterns across years, countries, and product categories.
+The system stores historical trade records in PostgreSQL, enabling long-term trade analysis.
+
+Businesses can:
+
+* Track trade growth over time
+* Compare yearly trade values
+* Identify market expansion opportunities
+* Detect declining trade regions
+
+Example:
+An electronics exporter can analyze how laptop exports from China changed across different countries over multiple years.
+
+---
+
+## 🌍 Identify Major Trading Partners
+
+The dashboard and APIs help businesses discover the most significant import/export partners for a country or product category.
 
 This helps organizations:
 
-* Understand how trade volumes change over time
-* Identify growing or declining markets
-* Detect seasonal or long-term trade trends
-* Support strategic sourcing and export planning
-
-For example, a company exporting electronics can track how export value changes across different countries over multiple years and identify emerging high-demand regions.
+* Understand dependency on certain markets
+* Optimize supply chain decisions
+* Explore international expansion
+* Identify high-value trade relationships
 
 ---
 
-### 🌍 Identify Major Trading Partners
+## 📦 Monitor Product-Level Trade Flows
 
-The dashboard and APIs allow businesses to analyze which countries are the most significant importers or exporters for specific products.
+Trade data is categorized using HS product codes.
 
-This provides insights such as:
+Businesses can:
 
-* Top partner countries by trade value
-* Dependence on specific trade regions
-* Market diversification opportunities
-* Potential international expansion targets
-
-Businesses can use these insights to strengthen supply chain decisions, optimize logistics planning, and identify new trade relationships.
-
----
-
-### 📦 Monitor Product-Level Trade Flows
-
-Trade records are categorized using HS (Harmonized System) product codes, enabling product-specific intelligence.
-
-The platform helps businesses:
-
-* Track trade flow for specific product categories
+* Track product-specific demand
 * Compare import vs export performance
-* Measure product demand across countries
-* Analyze product-wise trade value and quantity
+* Analyze trade quantity and weight
+* Monitor product-level market shifts
 
-This is especially useful for manufacturers, exporters, wholesalers, and supply chain teams who need product-level market visibility.
+This is useful for:
 
----
-
-### 📊 Build Trade Intelligence Dashboards for Decision-Making
-
-The Streamlit dashboard converts raw trade data into interactive business intelligence visualizations.
-
-Using filters, KPI metrics, and charts, decision-makers can quickly explore:
-
-* Total trade value
-* Top products
-* Major trading partners
-* Country-specific trade insights
-* Import/export comparisons
-
-Instead of manually analyzing raw CSV files or API responses, businesses receive a centralized analytics platform that supports faster and more data-driven decisions.
+* Manufacturers
+* Exporters
+* Importers
+* Supply chain teams
+* Market analysts
 
 ---
 
-### 🚀 Why This Project Is Useful
+## 📊 Access Interactive Trade Intelligence Dashboards
 
-International trade datasets are often large, inconsistent, and difficult to process manually. This project solves that challenge by building a complete automated ETL pipeline.
+Instead of analyzing raw CSV files manually, businesses receive:
 
-The platform:
+* KPI metrics
+* Interactive charts
+* Filterable dashboards
+* Country-level insights
+* Product-level analytics
 
-* Automates data ingestion from public trade APIs
-* Cleans and standardizes raw records
-* Stores data in a scalable relational database
-* Provides APIs for analytics consumption
-* Enables dashboard-based business intelligence
-* Supports automated scheduling using APScheduler
+This improves:
+
+* Decision-making speed
+* Data accessibility
+* Business intelligence capabilities
+
+---
+
+# ⚙️ Why This Project Is Useful
+
+This project demonstrates how real-world ETL systems work in production.
+
+The pipeline:
+
+* Continuously ingests external data
+* Cleans and standardizes records
+* Stores structured data in PostgreSQL
+* Exposes analytics APIs using FastAPI
+* Visualizes insights using Streamlit
+* Automates updates using APScheduler
 * Uses Docker for reproducible deployment
 
-This makes the system useful for:
+The solution is dynamic, not static:
 
-* Trade intelligence platforms
-* Supply chain analytics
-* Import/export businesses
-* Market research teams
-* Economic and trade analysis
-* Data-driven business strategy
+* Data changes over time
+* Pipeline can rerun automatically
+* Database updates continuously
+* APIs and dashboard reflect latest data
 
 ---
 
-An end-to-end Data Engineering project that fetches global trade data from the UN Comtrade API, cleans and processes it, stores it in PostgreSQL, exposes analytics APIs using FastAPI, visualizes insights through Streamlit dashboards, and automates the ETL workflow using APScheduler.
+# 🏗️ System Architecture
 
----
-
-# 🚀 Features
-
-* Automated trade data scraping
-* Data cleaning and deduplication
-* PostgreSQL data warehouse
-* FastAPI analytics APIs
-* Streamlit interactive dashboard
-* APScheduler ETL automation
-* Dockerized deployment
-* Modular production-style architecture
-
----
-
-# ⚙️ Environment Variables
-
-Create a `.env` file in the project root.
-
-```env
-DATABASE_URL=postgresql://postgres:password@postgres:5432/zauba_db
-BASE_URL=https://comtradeapi.un.org/public/v1/preview/C/A/HS
-API_HOST=0.0.0.0
-API_PORT=8000
-SCRAPER_SCHEDULE=0 2 * * *
+```text
+UN Comtrade API
+        ↓
+Scraper
+        ↓
+Cleaner
+        ↓
+PostgreSQL
+        ↓
+FastAPI APIs
+        ↓
+Streamlit Dashboard
 ```
-
-| Variable         | Description                  |
-| ---------------- | ---------------------------- |
-| DATABASE_URL     | PostgreSQL connection string |
-| BASE_URL         | UN Comtrade API endpoint     |
-| API_HOST         | FastAPI host                 |
-| API_PORT         | FastAPI port                 |
-| SCRAPER_SCHEDULE | Daily ETL schedule           |
 
 ---
 
@@ -191,35 +217,112 @@ zauba-trade-intelligence/
 
 ---
 
-# ⚙️ ETL Pipeline Architecture
+# Phase 1 — Scraper
+
+## ✅ Objective
+
+Build a reliable scraper for a real B2B dataset.
+
+## ✅ Data Source
+
+UN Comtrade Public API:
+
+* Global import/export trade data
+* Country-level trade intelligence
+* Product-level trade statistics
+
+## ✅ Features Implemented
+
+### Pagination Handling
+
+The scraper supports paginated API responses to fetch large datasets reliably.
+
+### Missing Field Handling
+
+Missing values are safely handled using defensive parsing logic.
+
+### Failure & Retry Handling
+
+The scraper includes retry-safe request handling to avoid hard crashes.
+
+### Structured Raw Data Export
+
+Raw data is exported into:
+
+* JSON
+* CSV
+
+---
+
+# Phase 2 — Cleaning & Automation
+
+## ✅ Data Cleaning
+
+Raw trade datasets are inconsistent and contain duplicates.
+
+Cleaning pipeline performs:
+
+* Duplicate removal
+* Missing value handling
+* Data standardization
+* Timestamp normalization
+* Type conversion
+
+All cleaning decisions are documented in:
 
 ```text
-UN Comtrade API
-        ↓
-Scraper
-        ↓
-Cleaner
-        ↓
-PostgreSQL
-        ↓
-FastAPI APIs
-        ↓
-Streamlit Dashboard
+cleaning/decisions.md
 ```
 
 ---
 
-# 📊 Dashboard Features
+## ✅ Database Storage
 
-* Filter by:
+Cleaned records are stored in PostgreSQL using SQLAlchemy ORM.
 
-  * Year
-  * Reporter Country
-  * Flow Type
-* KPI metrics
-* Top products visualization
-* Top trading partners
-* Interactive charts
+Benefits:
+
+* Structured querying
+* Scalable storage
+* Efficient filtering
+* API integration
+
+---
+
+## ✅ Automation
+
+Pipeline automation implemented using APScheduler.
+
+Automated workflow:
+
+1. Run scraper
+2. Clean raw data
+3. Load into PostgreSQL
+4. Update APIs/dashboard automatically
+
+Schedule:
+
+* Runs daily at 2 AM
+
+This ensures:
+
+* Data stays updated
+* Pipeline runs without manual intervention
+* Outputs remain reliable and repeatable
+
+---
+
+# Phase 3 — Deployment
+
+## ✅ Deployment Objective
+
+Expose a real interface/API that a business user can interact with.
+
+This project provides:
+
+* FastAPI analytics endpoints
+* Streamlit dashboard interface
+* Dockerized deployment setup
 
 ---
 
@@ -243,7 +346,7 @@ GET /trades
 GET /trades/filter
 ```
 
-### Query Parameters
+### Supported Query Parameters
 
 | Parameter | Example   |
 | --------- | --------- |
@@ -255,7 +358,62 @@ GET /trades/filter
 
 ---
 
-# ▶️ How to Run the Project Locally
+# 📊 Dashboard Features
+
+The Streamlit dashboard provides:
+
+* Year filtering
+* Country filtering
+* Flow-type filtering
+* KPI metrics
+* Top products visualization
+* Top trading partners
+* Interactive charts
+* Live PostgreSQL integration
+
+---
+
+# 🐳 Dockerized Deployment
+
+The project supports one-command local deployment using Docker Compose.
+
+## Start Entire Platform
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+* PostgreSQL
+* FastAPI
+* Streamlit
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env` file in the project root.
+
+```env
+DATABASE_URL=postgresql://postgres:password@postgres:5432/zauba_db
+BASE_URL=https://comtradeapi.un.org/public/v1/preview/C/A/HS
+API_HOST=0.0.0.0
+API_PORT=8000
+SCRAPER_SCHEDULE=0 2 * * *
+```
+
+| Variable         | Description                  |
+| ---------------- | ---------------------------- |
+| DATABASE_URL     | PostgreSQL connection string |
+| BASE_URL         | UN Comtrade API endpoint     |
+| API_HOST         | FastAPI host                 |
+| API_PORT         | FastAPI port                 |
+| SCRAPER_SCHEDULE | Automated ETL schedule       |
+
+---
+
+# ▶️ Steps to Run the Project Locally
 
 ## 1. Clone Repository
 
@@ -264,6 +422,8 @@ git clone <your-github-repo-url>
 cd zauba-trade-intelligence
 ```
 
+---
+
 ## 2. Create Virtual Environment
 
 ```bash
@@ -271,21 +431,29 @@ python -m venv venv
 source venv/bin/activate
 ```
 
+---
+
 ## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
+---
+
 ## 4. Configure Environment Variables
 
-Create a `.env` file using the variables listed above.
+Create a `.env` file using the environment variables above.
+
+---
 
 ## 5. Start Docker Services
 
 ```bash
 docker compose up --build
 ```
+
+---
 
 ## 6. Load Data into PostgreSQL
 
@@ -294,6 +462,8 @@ Open a new terminal and run:
 ```bash
 docker exec -it zauba_fastapi python -m pipeline.load_to_db
 ```
+
+---
 
 ## 7. Access Applications
 
@@ -311,79 +481,32 @@ http://localhost:8501
 
 ---
 
-# 🐳 Docker Setup
+# 🌐 Deployment Output
 
-## Build and Start Containers
+## FastAPI Interface
 
-```bash
-docker compose up --build
-```
-
-## Services
-
-| Service    | Port |
-| ---------- | ---- |
-| FastAPI    | 8000 |
-| Streamlit  | 8501 |
-| PostgreSQL | 5433 |
-
----
-
-# 🌐 Access URLs
-
-## FastAPI Swagger Docs
-
-```text
-http://localhost:8000/docs
-```
+Provides business-consumable trade analytics APIs.
 
 ## Streamlit Dashboard
 
-```text
-http://localhost:8501
-```
+Provides visual business intelligence dashboards with live database integration.
 
----
-
-# 🧪 Sample Workflow
-
-## Run Scraper
-
-```bash
-python -m scraper.scraper
-```
-
-## Run Cleaner
-
-```bash
-python -m cleaning.cleaner
-```
-
-## Load Data into PostgreSQL
-
-```bash
-python -m pipeline.load_to_db
-```
-
-## Start Scheduler
-
-```bash
-python -m pipeline.scheduler
-```
+Both interfaces are dynamic and reflect updated database records.
 
 ---
 
 # 📈 Future Improvements
 
-* Machine learning anomaly detection
+* ML-based anomaly detection
 * Trade forecasting models
-* Authentication and user roles
-* Advanced BI dashboards
-* Cloud deployment (AWS/GCP/Azure)
 * Airflow orchestration
+* Cloud deployment (AWS/GCP/Azure)
+* Authentication & user roles
+* Advanced BI dashboards
+* Real-time streaming ingestion
 
 ---
 
 # 👨‍💻 Author
 
-I am Moulicharan built this as a Data Engineering assignment project.
+I am moulicharan built this as a Data Engineering assignment project focused on designing a scalable and production-style B2B trade intelligence pipeline.
